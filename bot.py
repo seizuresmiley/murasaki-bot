@@ -79,9 +79,9 @@ async def mltd(option1, option2):
     else:
         await bot.say("Please supply valid arguments")
 
-@bot.commands()
+@bot.command()
 async def github():
     await bot.say("Check out this bot's source at https://github.com/seizuresmiley/murasaki_bot")
 
 
-bot.run('token')
+bot.run('NDg4MzQ2NTc0MjU1MjkyNDE3.Dna70g.TXC2TdQTLWsLCevudoAuvf_wLWs')
