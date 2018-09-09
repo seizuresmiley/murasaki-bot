@@ -20,10 +20,6 @@ async def say(text):
     await bot.say(text)
 
 @bot.command()
-async def nyaa():
-    await bot.say('Nyaa is now at https://nyaa.si/')
-
-@bot.command()
 async def dere(option1, option2):
     url = ('https://deresute.me/%s/json' % option2)
     r = requests.get(url)
