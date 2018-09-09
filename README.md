@@ -3,6 +3,13 @@ A very basic Discord bot made to aid me in studying Python.
 
 Despite it being named after a Tokyo 7th Sisters character, most of the features are things that deal with Idolmaster mobile games.
 
+Data is pulled from these sources:
+
+https://www.matsurihi.me/
+
+https://deresute.me/
+
+
 ## Dependencies
 
 This bot uses discord.py API wrapper.
@@ -24,7 +31,7 @@ Prefix is !.
 
 !say args
 
-Makes the bot say the supplied argument.
+    Makes the bot say the supplied argument.
 
 !dere arg1 arg2
 
