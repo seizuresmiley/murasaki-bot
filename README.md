@@ -62,3 +62,5 @@ Prefix is m!.
       name : returns event name.
 
       type : returns event type.
+!github
+    Links to this github.
