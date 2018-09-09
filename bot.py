@@ -21,6 +21,9 @@ async def say(text):
 
 @bot.command()
 async def dere(option1, option2):
+    option1 == null
+    option2 == null
+
     url = ('https://deresute.me/%s/json' % option2)
     r = requests.get(url)
     dereplayerdata = r.json()
@@ -35,6 +38,8 @@ async def dere(option1, option2):
 
 @bot.command()
 async def mltd(option1, option2):
+    option1 == null
+    option2 == null
 
     url = 'https://api.matsurihi.me/mltd/v1/version/latest'
     r = requests.get(url)
@@ -84,4 +89,4 @@ async def github():
     await bot.say("Check out this bot's source at https://github.com/seizuresmiley/murasaki_bot")
 
 
-bot.run('NDg4MzQ2NTc0MjU1MjkyNDE3.Dna70g.TXC2TdQTLWsLCevudoAuvf_wLWs')
+bot.run('token')
