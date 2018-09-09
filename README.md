@@ -31,7 +31,7 @@ Add your token at the end of the Python file, complete with ''.
 
 ## Current Features
 
-Prefix is !.
+Prefix is m!.
 
 !say args
 

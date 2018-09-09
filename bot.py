@@ -4,7 +4,7 @@ from discord.ext import commands
 import requests
 import json
 
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='m!')
 
 @bot.event
 async def on_ready():
@@ -78,6 +78,7 @@ async def mltd(option1, option2):
                 await bot.say("Event ID invalid. Please contact bot owner to update.")
     else:
         await bot.say("Please supply valid arguments")
+
 
 
 bot.run('token')
