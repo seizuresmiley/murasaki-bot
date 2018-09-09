@@ -1,6 +1,6 @@
 # Murasaki Bot
 
-[Echizen Murasaki](https://i.imgur.com/m3Pco1h.jpg)
+![Echizen Murasaki](https://i.imgur.com/m3Pco1h.jpg)
 
 
 A very basic Discord bot made to aid me in studying Python.
