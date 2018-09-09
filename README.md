@@ -1,4 +1,8 @@
 # Murasaki Bot
+
+[Echizen Murasaki](https://i.imgur.com/m3Pco1h.jpg)
+
+
 A very basic Discord bot made to aid me in studying Python.
 
 Despite it being named after a Tokyo 7th Sisters character, most of the features are things that deal with Idolmaster mobile games.
