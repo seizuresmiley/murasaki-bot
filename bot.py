@@ -105,6 +105,15 @@ async def github():
     '''displays this bot's github link'''
     await bot.say("Check out this bot's source at https://github.com/seizuresmiley/murasaki_bot")
 
+@bot.command()
+async def despa():
+    '''cito'''
+    await bot.say("cito")
+
+@bot.command()
+async def bestsong():
+    '''obviously the best song'''
+    await bot.say("world's endo the besto https://www.youtube.com/watch?v=98rbpIzyBLg")
 
 
 config.read("config.ini")
