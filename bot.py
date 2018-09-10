@@ -27,19 +27,29 @@ async def say(text):
 async def dere(option1='none', option2='none'):
     '''displays deresute stats based on arguments'''
     idlength = len(option2)
-    if idlength != 9 or idlength.isdigit() == 'False' :
+    if idlength > 9 or idlength < 9 or option2.isdigit() == 'False' :
         await bot.say("Please supply valid arguments")
-    elif option1 == 'player':
+        return
+    if option1 == 'player':
 
         url = ('https://deresute.me/%s/json' % option2)
         r = requests.get(url)
         dereplayerdata = r.json()
         master = dereplayerdata['cleared']['master']
         masterfc = dereplayerdata['full_combo']['master']
+        playername = dereplayerdata['name']
 
         await bot.say('https://deresute.me/%s/large' % option2)
     elif option1 == 'master':
-        await bot.say("This Producer has %s Master clears and %s Full Combos" % (master, masterfc))
+        #if option2.isdigit() == 'False' :
+            #return
+            url = ('https://deresute.me/%s/json' % option2)
+            r = requests.get(url)
+            dereplayerdata = r.json()
+            master = dereplayerdata['cleared']['master']
+            masterfc = dereplayerdata['full_combo']['master']
+            playername = dereplayerdata['name']
+            await bot.say("%s has %s Master clears and %s Full Combos" % (playername, master, masterfc))
     else:
         await bot.say("Please supply valid arguments")
 
