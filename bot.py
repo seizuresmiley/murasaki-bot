@@ -21,10 +21,11 @@ async def on_ready():
 
 @bot.command()
 async def say(text):
+    '''repeats after you'''
     await bot.say(text)
 
 @bot.command()
-async def dere(option1='none', option2='none'):
+async def dere(option1='player | master', option2='ID'):
     '''displays deresute stats based on arguments'''
     idlength = len(option2)
     if idlength > 9 or idlength < 9 or option2.isdigit() == 'False' :
@@ -54,7 +55,7 @@ async def dere(option1='none', option2='none'):
         await bot.say("Please supply valid arguments")
 
 @bot.command()
-async def mltd(option1='none', option2='none'):
+async def mltd(option1='ver | event', option2=' current / date | name / type'):
     '''displays data related to mirishita'''
     url = 'https://api.matsurihi.me/mltd/v1/version/latest'
     r = requests.get(url)
@@ -75,14 +76,14 @@ async def mltd(option1='none', option2='none'):
     #5 : Anniversary
     if option1 == 'ver':
         if option2 == 'current':
-            await bot.say("Current version is %s." % (mlverdata['app']['version']))
+            await bot.say("Current / last version is %s." % (mlverdata['app']['version']))
         elif option2 == 'date':
             await bot.say("Last Upated %s." % (mlverdata['app']['updateTime']))
         else:
             await bot.say("Please supply valid arguments.")
     elif option1 == 'event':
         if option2 == 'name':
-            await bot.say('Event Name is : %s ' % (lasteventName))
+            await bot.say('Current / last event name is : %s ' % (lasteventName))
         elif option2 == 'type':
             if lasteventType == 1:
                 await bot.say("Event type is : Theater Show Time.")
@@ -101,7 +102,9 @@ async def mltd(option1='none', option2='none'):
 
 @bot.command()
 async def github():
+    '''displays this bot's github link'''
     await bot.say("Check out this bot's source at https://github.com/seizuresmiley/murasaki_bot")
+
 
 
 config.read("config.ini")
