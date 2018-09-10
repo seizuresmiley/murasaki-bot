@@ -24,16 +24,19 @@ async def say(text):
     await bot.say(text)
 
 @bot.command()
-async def dere(option1, option2):
-    option1 == null
-    option2 == null
+async def dere(option1='none', option2='none'):
+    '''displays deresute stats based on arguments'''
+    idlength = len(option2)
+    if idlength != 9 or idlength.isdigit() == 'False' :
+        await bot.say("Please supply valid arguments")
+    elif option1 == 'player':
 
-    url = ('https://deresute.me/%s/json' % option2)
-    r = requests.get(url)
-    dereplayerdata = r.json()
-    master = dereplayerdata['cleared']['master']
-    masterfc = dereplayerdata['full_combo']['master']
-    if option1 == 'player':
+        url = ('https://deresute.me/%s/json' % option2)
+        r = requests.get(url)
+        dereplayerdata = r.json()
+        master = dereplayerdata['cleared']['master']
+        masterfc = dereplayerdata['full_combo']['master']
+
         await bot.say('https://deresute.me/%s/large' % option2)
     elif option1 == 'master':
         await bot.say("This Producer has %s Master clears and %s Full Combos" % (master, masterfc))
@@ -41,10 +44,8 @@ async def dere(option1, option2):
         await bot.say("Please supply valid arguments")
 
 @bot.command()
-async def mltd(option1, option2):
-    option1 == null
-    option2 == null
-
+async def mltd(option1='none', option2='none'):
+    '''displays data related to mirishita'''
     url = 'https://api.matsurihi.me/mltd/v1/version/latest'
     r = requests.get(url)
     mlverdata = r.json()
