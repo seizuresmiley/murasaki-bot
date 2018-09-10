@@ -111,12 +111,10 @@ async def mlborder(option = 'point / score / lounge'):
     lasteventName = mleventdata[-1]['name']
     logURL = ('https://api.matsurihi.me/mltd/v1/events/%s/rankings/logs/eventPoint/1,2,3,100,2500,5000,10000,25000,50000,100000' % (lasteventID))
     logresponse = requests.get(logURL)
-    logjson = str(logresponse.json())
+    logjson = logresponse.json()
     logstatus = logresponse.status_code
 
-    if logstatus == '404':
-        await bot.say("Event ranking data cannot be found.")
-    elif option == 'point':
+    if option == 'point':
         await bot.say(
         '```\n \
         Event Point Border For: \n \
