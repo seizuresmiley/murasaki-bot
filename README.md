@@ -5,6 +5,8 @@
 
 A very basic Discord bot made to aid me in studying Python.
 
+Designed to be only used as a private bot in a single server in mind.
+
 Despite it being named after a Tokyo 7th Sisters character, most of the features are things that deal with Idolmaster mobile games.
 
 Data is pulled from these sources:
