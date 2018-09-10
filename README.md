@@ -34,9 +34,12 @@ requests module is also needed.
 `python3 pip install requests`
 
 3. replace <your token here> in config.ini with your own bot token. Example config:
+
 ' [config]
 
-token = <your token here>'
+token = <your token here>
+
+'
 
 
 4.  Run bot.py
