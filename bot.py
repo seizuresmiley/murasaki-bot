@@ -3,8 +3,12 @@ import asyncio
 from discord.ext import commands
 import requests
 import json
+import configparser
 
 bot = commands.Bot(command_prefix='m!')
+config = configparser.ConfigParser()
+
+
 
 @bot.event
 async def on_ready():
@@ -89,4 +93,6 @@ async def github():
     await bot.say("Check out this bot's source at https://github.com/seizuresmiley/murasaki_bot")
 
 
-bot.run('token')
+config.read("config.ini")
+token = config.get("config","token")
+bot.run(token)
