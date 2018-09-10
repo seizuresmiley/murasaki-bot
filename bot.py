@@ -112,9 +112,14 @@ async def mlborder(option = 'point / score / lounge'):
     logURL = ('https://api.matsurihi.me/mltd/v1/events/%s/rankings/logs/eventPoint/1,2,3,100,2500,5000,10000,25000,50000,100000' % (lasteventID))
     logresponse = requests.get(logURL)
     logjson = logresponse.json()
-    logstatus = logresponse.status_code
 
-    if option == 'point':
+
+
+    #if logstatus == 404:
+    #    bot.say("Can't find event ranking")
+    if logresponse.status_code == 404:
+        return
+    elif option == 'point':
         await bot.say(
         '```\n \
         Event Point Border For: \n \
@@ -135,9 +140,10 @@ async def mlborder(option = 'point / score / lounge'):
         logjson[6]['data'][-1]['score'],logjson[7]['data'][-1]['score'],logjson[8]['data'][-1]['score'],\
         logjson[9]['data'][-1]['score'], logjson[0]['data'][-1]['summaryTime']
         ))
-
     else:
         await bot.say('Score type "%s" not supported, or invalid' % (option))
+
+
 @bot.command()
 async def github():
     '''displays this bot's github link'''
