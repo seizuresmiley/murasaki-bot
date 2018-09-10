@@ -25,9 +25,17 @@ requests module is also needed.
 
 ## Setup
 
-You'll need to install requests and discord.py module.
+1. install discord.py
 
-Add your token at the end of the Python file, complete with ''.
+`python3 -m pip install -U discord.py[voice]`
+
+2. install requests
+
+`python3 pip install requests`
+
+3. replace <your token here> in config.ini with your own bot token.
+
+4.  Run bot.py
 
 ## Current Features
 
