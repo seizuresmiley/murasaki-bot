@@ -37,11 +37,12 @@ requests module is also needed.
 
 3. replace <your token here> in config.ini with your own bot token. Example config:
 
-' [config]
+` [config]
 
-token = <your token here>
-
-'
+token : <your token here>
+presence : text
+rss2json_api : <your api key here>
+`
 
 
 4.  Run bot.py
