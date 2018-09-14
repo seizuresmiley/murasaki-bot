@@ -4,6 +4,7 @@ from discord.ext import commands
 import requests
 import json
 import configparser
+from requests.utils import quote
 
 bot = commands.Bot(command_prefix='m!')
 config = configparser.ConfigParser()
@@ -160,45 +161,29 @@ async def bestsong():
     await bot.say("world's endo the besto https://www.youtube.com/watch?v=98rbpIzyBLg")
 
 @bot.command()
-async def nyaa(option1 = 'imas / all'):
+async def nyaa(option1 = 'category', option2 = 'keyword'):
     '''displays nyaa.si torrents. appending imas only displays Idolmaster torrents.'''
-    if option1 == 'all':
-        losslessurl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnyaa.si%2F%3Fpage%3Drss%26c%3D2_1%26f%3D0'
-        rl = requests.get(losslessurl)
-        lsdata = rl.json()
-        await bot.say(
-            "Latest 3  lossless uploads on Nyaa \n \
-            #1 %s \n \
-            %s \n \
-            #2 %s \n \
-            %s \n \
-            #3 %s \n \
-            %s \n" \
-            % (lsdata['items'][0]['title'],lsdata['items'][0]['link'],\
-            lsdata['items'][1]['title'],lsdata['items'][1]['link'],\
-            lsdata['items'][2]['title'],lsdata['items'][2]['link']))
-        return
-    elif option1=='imas':
-        imasurl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnyaa.si%2F%3Fpage%3Drss%26q%3Didolm%2540ster%26c%3D2_1%26f%3D0'
-        rl = requests.get(imasurl)
-        lsdata = rl.json()
-        await bot.say(
-            "Latest 3 IDOLM@STER lossless uploads on Nyaa \n \
-            #1 %s \n \
-            %s \n \
-            #2 %s \n \
-            %s \n \
-            #3 %s \n \
-            %s \n" \
-            % (lsdata['items'][0]['title'],lsdata['items'][0]['link'],\
-            lsdata['items'][1]['title'],lsdata['items'][1]['link'],\
-            lsdata['items'][2]['title'],lsdata['items'][2]['link']))
-        return
+    category = option1
+    keyword = option2
+
+    if category == 'lossless':
+        category = '2_1'
+    elif category == 'lossy':
+        category = '2_2'
     else:
-        return
+        await bot.say('invalid arguments')
+    keyword2 = quote(keyword, safe='')
+    encodedurl = quote('https://nyaa.si/?page=rss&q=%s&c=%s' % (keyword2, category) , safe='')
+    url = ('https://api.rss2json.com/v1/api.json?rss_url=%s' % (encodedurl))
+    r = requests.get('%s&api_key=%s' % (url,apikey))
+    feed = r.json()
+
+    await bot.say('1st result : %s \n \
+    link: %s' % (feed['items'][0]['title'] , feed['items'][0]['guid']))
 
 
 
 config.read("config.ini")
 token = config.get("config","token")
+apikey = config.get("config", 'rss2json_api')
 bot.run(token)
