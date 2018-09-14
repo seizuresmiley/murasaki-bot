@@ -5,6 +5,8 @@
 
 A very basic Discord bot made to aid me in studying Python.
 
+Designed to be only used as a private bot in a single server in mind.
+
 Despite it being named after a Tokyo 7th Sisters character, most of the features are things that deal with Idolmaster mobile games.
 
 Data is pulled from these sources:
@@ -35,11 +37,12 @@ requests module is also needed.
 
 3. replace <your token here> in config.ini with your own bot token. Example config:
 
-' [config]
+` [config]
 
-token = <your token here>
-
-'
+token : <your token here>
+presence : text
+rss2json_api : <your api key here>
+`
 
 
 4.  Run bot.py
